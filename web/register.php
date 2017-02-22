@@ -20,5 +20,6 @@ if ("POST" === $_SERVER["REQUEST_METHOD"]) {
         
         $user->save($conn);
     }
-    
 }
+
+header('Location: /index.php');
