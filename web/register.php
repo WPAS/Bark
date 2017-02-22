@@ -22,4 +22,4 @@ if ("POST" === $_SERVER["REQUEST_METHOD"]) {
     }
 }
 
-header('Location: /index.php');
+header('Location: ./index.php');

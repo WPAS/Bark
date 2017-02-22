@@ -19,12 +19,16 @@ $user = loggedUser($conn);
     <?php if ($user) { ?>
         <p>
             You are logged in as: <?php echo $user->getUsername() ?>
-            <a href='/logout.php'>Logout</a>
+            <a href='logout.php'>Logout</a>
         </p>
     <?php } else { ?>
         <p>
-            <a href="loginForm.php">Login</a>
+            <a href="login_form.php">Login</a>
         </p>
+        <p>
+            Not a user? You can <a href="register_form.php">register</a>
+        </p>
+
     <?php } ?>
 </body>
 </html>
