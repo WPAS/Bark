@@ -7,17 +7,17 @@
     <body>
         <form method="POST" action="login.php">
             <p>
-                <label>
+                <label>Your username
                     <input name="username" type="text">
                 </label>
             </p>
             <p>
-                <label>
+                <label>Your password
                     <p><input name="password" type="password"></p>
                 </label>
             </p>
             <p>
-                <input type="submit">
+                <input type="submit" value="Log in">
             </p>
         </form>
     </body>

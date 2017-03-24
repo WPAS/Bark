@@ -13,7 +13,7 @@ $user = loggedUser($conn);
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Bark</title>
 </head>
 <body>
     <?php if ($user) { ?>

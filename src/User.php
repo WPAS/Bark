@@ -13,8 +13,7 @@ class User
         $this->email = "";
         $this->username = "";
         $this->password = "";
-    }
-    
+    }    
     
     public function setUsername($username) 
     {
@@ -39,7 +38,6 @@ class User
     {
         $this->password = $hash;
     }
-
 
     public function getId() 
     {
