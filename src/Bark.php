@@ -42,7 +42,7 @@ class Bark {
     public function __construct()
     {
         $this->id = -1;
-        $this->userId = "";
+        $this->userId = -1;
         $this->text = "";
         $this->creationDate = "";
     }    
@@ -122,13 +122,13 @@ class Bark {
     {
         $id_safe = $conn->real_escape_string($id);
 
-        $sql = "SELECT * FROM `bark` WHERE `userId` = $id_safe";
+        $sql = "SELECT * FROM `bark` WHERE `userId` = $id_safe ORDER BY `id` DESC LIMIT 20";
         return self::loadManyBarks($conn, $sql);
     }
 
     static public function loadAllBarks(mysqli $conn)
     {
-        $sql = "SELECT * FROM `bark`";
+        $sql = "SELECT * FROM `bark` ORDER BY `id` DESC LIMIT 20";
         return self::loadManyBarks($conn, $sql);
     } 
 
