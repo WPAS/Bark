@@ -9,14 +9,19 @@ require_once '../src/Comment.php';
 session_start();
 
 $user = loggedUser($conn);
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Bark - user page</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+<?php
+    if ($user) {
+?>
     <p>
         You are logged in as: <?php echo $user->getUsername() ?>. <br>
         You can <a href="index.php">return to main page</a> or <a href='logout.php'>logout</a>.            
@@ -29,22 +34,26 @@ $user = loggedUser($conn);
             
             foreach($barks as $bark) { 
         ?>
-                <div>
+                <div class="bark">
                     <p><?php echo $bark->getText(); ?></p>
                     <p><?php echo $bark->getCreationDate() ?></p>
-                    <div>
+                    <div class="comment">
                         <?php include '../src/load_comments.php'; ?>
+                        <div>
+                            <?php 
+                                if ($user) {
+                                    include_once '../src/save_comment.php';
+                                    include '../src/comment_form.php';
+                                }
+                            ?>    
+                        </div>
                     </div>
-                    <div>
-                        <?php 
-                            if ($user) {
-                                include_once '../src/save_comment.php';
-                                include '../src/comment_form.php';
-                            }
-                        ?>    
-                    </div>
-
                 </div>
         <?php } ?>
-    </div>   
+    </div>
+<?php
+    } else {
+        echo "<p>Please <a href='login_form.php'>log in</a></p>";
+    }
+?>
 </body>

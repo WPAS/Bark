@@ -9,6 +9,6 @@ if ($comments && count($comments) > 0) {
         <div>
             <p><?php echo $comment->getText(); ?></p>
             <p><?php echo $author->getUsername() . ", " . $comment->getCreationDate() ?></p>
-        <div>
+        </div>
 <?php    }    
 }

@@ -1,0 +1,14 @@
+.comment {
+    padding: 10px;
+    margin: 10px;
+    background-color: gainsboro;
+}
+
+.bark {
+    border: 2px solid darkgray;
+    margin: 2px;
+}
+
+.bark h4 {
+    margin: 1px;
+}

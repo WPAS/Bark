@@ -15,7 +15,9 @@ if ("POST" === $_SERVER["REQUEST_METHOD"]) {
         $comment->setCreationDate($creationDate);
         
         $comment->saveToDB($conn);
-    } else {
-        echo "We are very sorry. Your comment wasn't saved. Please try again later.";
-    }
+        
+        if ($comment->getiD() === -1) {
+            echo "We are very sorry. Your comment wasn't saved. Please try again later.";
+        }
+    }    
 }

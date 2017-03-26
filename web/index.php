@@ -15,6 +15,7 @@ $user = loggedUser($conn);
 <head>
     <meta charset="UTF-8">
     <title>Bark</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <?php if ($user) { ?>
@@ -41,20 +42,20 @@ $user = loggedUser($conn);
             foreach($barks as $bark) {
                 $author = User::loadUserById($conn, $bark->getUserId());
         ?>
-                <div>
+                <div class="bark">
                     <p><?php echo $bark->getText(); ?></p>
                     <p><?php echo $author->getUsername() . ", " . $bark->getCreationDate() ?></p>
-                    <div>
+                    <div class="comment">
                         <?php include '../src/load_comments.php'; ?>
-                    </div>
-                    <div>
-                        <?php 
-                            if ($user) {
-                                include_once '../src/save_comment.php';
-                                include '../src/comment_form.php';
-                            }
-                        ?>    
-                    </div>
+                        <div>
+                            <?php 
+                                if ($user) {
+                                    include_once '../src/save_comment.php';
+                                    include '../src/comment_form.php';
+                                }
+                            ?>    
+                        </div>
+                    </div>    
                 </div>
         
         <?php } ?>
