@@ -8,7 +8,8 @@ if ($comments && count($comments) > 0) {
         $author = User::loadUserById($conn, $comment->getUserId()); ?>
         <div>
             <p><?php echo $comment->getText(); ?></p>
-            <p><?php echo $author->getUsername() . ", " . $comment->getCreationDate() ?></p>
+            <p><?php echo $author->getUsername() . ", " . $comment->getCreationDate() ?><br>
+            <a href="messages_form.php?to=<?php echo $author->getId() ?>">Send private message to the author</a></p>            
         </div>
 <?php    }    
 }

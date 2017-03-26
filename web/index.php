@@ -44,7 +44,8 @@ $user = loggedUser($conn);
         ?>
                 <div class="bark">
                     <p><?php echo $bark->getText(); ?></p>
-                    <p><?php echo $author->getUsername() . ", " . $bark->getCreationDate() ?></p>
+                    <p><?php echo $author->getUsername() . ", " . $bark->getCreationDate() ?><br>
+                    <a href="messages_form.php?to=<?php echo $author->getId() ?>">Send private message to the author</a></p>
                     <div class="comment">
                         <?php include '../src/load_comments.php'; ?>
                         <div>
