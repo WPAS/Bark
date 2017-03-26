@@ -4,7 +4,7 @@ CREATE TABLE `user` (
     `username` VARCHAR(255) UNIQUE NOT NULL,
     `password` VARCHAR(255) NOT NULL,
     PRIMARY KEY ('id')
-);
+)
 
 CREATE TABLE `bark` (
     `id` INT AUTO_INCREMENT,
@@ -13,7 +13,7 @@ CREATE TABLE `bark` (
     `userId` INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (userId) REFERENCES `user`(id)
-);
+)
 
 CREATE TABLE `comment` (
     `id` INT AUTO_INCREMENT,
@@ -24,7 +24,7 @@ CREATE TABLE `comment` (
     PRIMARY KEY (id),
     FOREIGN KEY (userId) REFERENCES `user`(id),
     FOREIGN KEY (barkId) REFERENCES `bark`(id)
-);
+)
 
 CREATE TABLE `message` (
     `id` INT AUTO_INCREMENT,
@@ -36,4 +36,4 @@ CREATE TABLE `message` (
     PRIMARY KEY (id),
     FOREIGN KEY (authorId) REFERENCES `user`(id),
     FOREIGN KEY (addresseeId) REFERENCES `user`(id)
-);
+)

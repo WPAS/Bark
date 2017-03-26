@@ -128,5 +128,10 @@ class Message {
         return self::loadManyMessages($conn, $sql);
     } 
     
+    public function checkAsRead(mysqli $conn) {
+        $id = $this->id;        
+        $sql = "UPDATE `message` SET `read` = 1 WHERE `id` = $id LIMIT 1";
+        $conn->query($sql);
+    }
     
 }
