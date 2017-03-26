@@ -1,10 +1,19 @@
 <?php
 
-class Bark {
+class Bark
+{
     private $id;
     private $userId;
     private $text;
     private $creationDate;
+    
+    public function __construct()
+    {
+        $this->id = -1;
+        $this->userId = -1;
+        $this->text = "";
+        $this->creationDate = "";
+    }    
 
     public function getId() {
         return $this->id;
@@ -37,15 +46,6 @@ class Bark {
     private function setId($id) {
         $this->id = $id;
     }
-
-
-    public function __construct()
-    {
-        $this->id = -1;
-        $this->userId = -1;
-        $this->text = "";
-        $this->creationDate = "";
-    }    
 
     public function saveToDB(mysqli $conn) 
     {

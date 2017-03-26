@@ -3,6 +3,7 @@ require_once '../src/lib.php';
 require_once '../src/connection.php';
 require_once '../src/User.php';
 require_once '../src/Bark.php';
+require_once '../src/Comment.php';
 
 session_start();
 
@@ -43,7 +44,19 @@ $user = loggedUser($conn);
                 <div>
                     <p><?php echo $bark->getText(); ?></p>
                     <p><?php echo $author->getUsername() . ", " . $bark->getCreationDate() ?></p>
+                    <div>
+                        <?php include '../src/load_comments.php'; ?>
+                    </div>
+                    <div>
+                        <?php 
+                            if ($user) {
+                                include_once '../src/save_comment.php';
+                                include '../src/comment_form.php';
+                            }
+                        ?>    
+                    </div>
                 </div>
+        
         <?php } ?>
 
     </div>

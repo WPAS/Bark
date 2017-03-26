@@ -14,3 +14,14 @@ CREATE TABLE `bark` (
     PRIMARY KEY (id),
     FOREIGN KEY (userId) REFERENCES `user`(id)
 )
+
+CREATE TABLE `comment` (
+    `id` INT AUTO_INCREMENT,
+    `text` VARCHAR(255) NOT NULL,
+    `creationDate` VARCHAR(255) NOT NULL,
+    `userId` INT NOT NULL,
+    `barkId` INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (userId) REFERENCES `user`(id),
+    FOREIGN KEY (barkId) REFERENCES `bark`(id)
+)

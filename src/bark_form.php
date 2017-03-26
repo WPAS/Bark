@@ -1,7 +1,7 @@
 <?php
 if ("POST" === $_SERVER["REQUEST_METHOD"]) {
     if(isset($_POST["text"]) && isset($_POST["userId"]) && isset($_POST["creationDate"])) {
-        //here also validation and sanitation needed
+        //here also validation/sanitation needed
         $text = $_POST["text"];
         $userId = $_POST["userId"];
         $creationDate = $_POST["creationDate"];
@@ -13,8 +13,10 @@ if ("POST" === $_SERVER["REQUEST_METHOD"]) {
         $bark->setCreationDate($creationDate);
         
         $bark->saveToDB($conn);
-    } else {
-        echo "We are very sorry. Your Bark wasn't saved. Please try again later.";
+        
+        if ($bark->getId() === -1) {
+            echo "We are very sorry. Your Bark wasn't saved. Please try again later.";
+        }
     }
 }
 ?>
