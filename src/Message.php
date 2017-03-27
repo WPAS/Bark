@@ -132,6 +132,5 @@ class Message {
         $id = $this->id;        
         $sql = "UPDATE `message` SET `read` = 1 WHERE `id` = $id LIMIT 1";
         $conn->query($sql);
-    }
-    
+    }    
 }

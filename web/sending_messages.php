@@ -9,23 +9,26 @@ $user = loggedUser($conn);
 
 if ("POST" === $_SERVER["REQUEST_METHOD"]) {
     if(isset($_POST["message"]) && isset($_POST["authorId"]) && isset($_POST["addresseeId"]) && isset($_POST["creationDate"])) {
-        //here also validation/sanitation needed
         $text = $_POST["message"];
         $authorId = $_POST["authorId"];
         $addresseeId = $_POST["addresseeId"];
         $creationDate = $_POST["creationDate"];
 
-        $message = new Message();
-        
-        $message->setAuthorId($authorId);
-        $message->setAddresseeId($addresseeId);
-        $message->setText($text);
-        $message->setCreationDate($creationDate);
-        
-        $message->saveToDB($conn);
-        
-        if ($message->getId() === -1) {
-            echo "We are very sorry. Your message wasn't send. Please try again later.";
+        if (strlen($text) > 150) {
+            echo "<p>Your message can't have more then 150 characters</p>";
+        } else {
+            $message = new Message();
+
+            $message->setAuthorId($authorId);
+            $message->setAddresseeId($addresseeId);
+            $message->setText($text);
+            $message->setCreationDate($creationDate);
+
+            $message->saveToDB($conn);
+
+            if ($message->getId() === -1) {
+                echo "We are very sorry. Your message wasn't send. Please try again later.";
+            }
         }
     }
 }
