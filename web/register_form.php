@@ -27,5 +27,6 @@
                 </li>
             </ul>
         </form>
-    </body>
+        <?php require_once '../src/footer.php'; ?>         
+    </body>    
 </html>

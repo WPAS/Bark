@@ -48,5 +48,6 @@ if ("GET" === $_SERVER["REQUEST_METHOD"] && isset($_GET["to"]) ) {
     } else {
         echo "<p>Only users can send messages. Please <a href='login_form.php'>log in</a> or return to the <a href='index.php'>main page</a></p>";
     }
+require_once '../src/footer.php';             
 ?>
 </body>

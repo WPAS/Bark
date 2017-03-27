@@ -105,5 +105,7 @@ $user = loggedUser($conn);
     } else {
         echo "<p>Please <a href='login_form.php'>log in</a></p>";
     }
-?>
+    
+    require_once '../src/footer.php'; 
+?>         
 </body>

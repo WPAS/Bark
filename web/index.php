@@ -62,5 +62,6 @@ $user = loggedUser($conn);
         <?php } ?>
 
     </div>
+<?php require_once '../src/footer.php'; ?>         
 </body>
 </html>

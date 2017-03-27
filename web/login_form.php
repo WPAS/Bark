@@ -20,7 +20,8 @@
                 <input type="submit" value="Log in">
             </p>
         </form>
-    </body>
+    <?php require_once '../src/footer.php'; ?>             
+    </body>    
 </html>
 
 

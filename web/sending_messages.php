@@ -52,3 +52,6 @@ if ("POST" === $_SERVER["REQUEST_METHOD"]) {
     } else {
         echo "It seems you are lost :) You can return <a href='index.php'>return to the main page</a>";
     }
+require_once '../src/footer.php'; 
+?>
+</body>         
