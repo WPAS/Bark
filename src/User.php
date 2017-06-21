@@ -96,7 +96,7 @@ class User
         if (1 === $result->num_rows) {
             $userArray = $result->fetch_assoc();
             
-            $user = new User();
+            $user = new User ();
             
             $user->setId($userArray['id']);
             $user->setEmail($userArray['email']);

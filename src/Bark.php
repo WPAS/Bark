@@ -65,9 +65,9 @@ class Bark
         }
     }
 
-    static public function loadBarkById(mysqli $conn, $id)
+    public static function loadBarkById(mysqli $conn, $id)
     {
-        $id_safe = $conn->real_escape_string($id);
+        $id_safe = (int) $conn->real_escape_string($id);
 
         $sql = "SELECT * FROM `bark` WHERE `id` = $id_safe";
 
@@ -93,7 +93,7 @@ class Bark
         }
     }
     
-    static private function loadManyBarks(mysqli $conn, $sql) {
+    private static function loadManyBarks(mysqli $conn, $sql) {
         $barks = [];
 
         $result = $conn->query($sql);
@@ -118,15 +118,15 @@ class Bark
         }        
     }
 
-    static public function loadAllBarksByUserId(mysqli $conn, $id)
+    public static function loadAllBarksByUserId(mysqli $conn, $id)
     {
-        $id_safe = $conn->real_escape_string($id);
+        $id_safe = (int) $conn->real_escape_string($id);
 
         $sql = "SELECT * FROM `bark` WHERE `userId` = $id_safe ORDER BY `id` DESC LIMIT 20";
         return self::loadManyBarks($conn, $sql);
     }
 
-    static public function loadAllBarks(mysqli $conn)
+    public static function loadAllBarks(mysqli $conn)
     {
         $sql = "SELECT * FROM `bark` ORDER BY `id` DESC LIMIT 20";
         return self::loadManyBarks($conn, $sql);

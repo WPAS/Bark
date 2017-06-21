@@ -9,9 +9,9 @@ $user = loggedUser($conn);
 
 if ("POST" === $_SERVER["REQUEST_METHOD"]) {
     if(isset($_POST["message"]) && isset($_POST["authorId"]) && isset($_POST["addresseeId"]) && isset($_POST["creationDate"])) {
-        $text = $_POST["message"];
-        $authorId = $_POST["authorId"];
-        $addresseeId = $_POST["addresseeId"];
+        $text = nl2br(htmlentities($_POST["message"]));
+        $authorId = (int) $_POST["authorId"];
+        $addresseeId = (int) $_POST["addresseeId"];
         $creationDate = $_POST["creationDate"];
 
         if (strlen($text) > 150) {

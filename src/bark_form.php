@@ -1,8 +1,8 @@
 <?php
 if ("POST" === $_SERVER["REQUEST_METHOD"]) {
     if(isset($_POST["text"]) && isset($_POST["userId"]) && isset($_POST["creationDate"])) {
-        $text = $_POST["text"];
-        $userId = $_POST["userId"];
+        $text = nl2br(htmlentities($_POST["text"]));
+        $userId = (int) $_POST["userId"];
         $creationDate = $_POST["creationDate"];
 
         if (strlen($text) > 150) {

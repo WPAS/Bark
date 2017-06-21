@@ -77,7 +77,7 @@ class Comment
     
     static public function loadCommentById(mysqli $conn, $id)
     {
-        $id_safe = $conn->real_escape_string($id);
+        $id_safe = (int) $conn->real_escape_string($id);
 
         $sql = "SELECT * FROM `comment` WHERE `id` = $id_safe";
 
@@ -106,7 +106,7 @@ class Comment
     
     static public function loadAllCommentsByBarkId(mysqli $conn, $id)
     {
-        $id_safe = $conn->real_escape_string($id);
+        $id_safe = (int) $conn->real_escape_string($id);
 
         $sql = "SELECT * FROM `comment` WHERE `barkId` = $id_safe ORDER BY `id` DESC LIMIT 20";
         
@@ -135,13 +135,6 @@ class Comment
         }        
     }
 
-
-
-
-    
-    
-    
-    
 }
 
 

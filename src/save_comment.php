@@ -1,9 +1,9 @@
 <?php
 if ("POST" === $_SERVER["REQUEST_METHOD"]) {
     if(isset($_POST["comment"]) && isset($_POST["userId"]) && isset($_POST["barkId"]) && isset($_POST["creationDate"])) {
-        $text = $_POST["comment"];
-        $userId = $_POST["userId"];
-        $barkId = $_POST["barkId"];
+        $text = nl2br(htmlentities($_POST["comment"]));
+        $userId = (int) $_POST["userId"];
+        $barkId = (int) $_POST["barkId"];
         $creationDate = $_POST["creationDate"];
     
         if (strlen($text) > 100) {

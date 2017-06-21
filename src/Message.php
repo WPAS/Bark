@@ -114,7 +114,7 @@ class Message {
 
     static public function loadAllMessagesByAuthor(mysqli $conn, $id)
     {
-        $id_safe = $conn->real_escape_string($id);
+        $id_safe = (int) $conn->real_escape_string($id);
 
         $sql = "SELECT * FROM `message` WHERE `authorId` = $id_safe ORDER BY `id` DESC LIMIT 20";
         return self::loadManyMessages($conn, $sql);
@@ -122,7 +122,7 @@ class Message {
 
     static public function loadAllMessagesByAddressee(mysqli $conn, $id)
     {
-        $id_safe = $conn->real_escape_string($id);
+        $id_safe = (int) $conn->real_escape_string($id);
         
         $sql = "SELECT * FROM `message` WHERE `addresseeId` = $id_safe ORDER BY `id` DESC LIMIT 20";
         return self::loadManyMessages($conn, $sql);
