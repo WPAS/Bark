@@ -81,7 +81,7 @@ class User
     }
 
 
-    static public function loadUserByUsername(mysqli $conn, $username)
+    public static function loadUserByUsername(mysqli $conn, $username)
     {
         $username = $conn->real_escape_string($username);
         
@@ -96,7 +96,7 @@ class User
         if (1 === $result->num_rows) {
             $userArray = $result->fetch_assoc();
             
-            $user = new User ();
+            $user = new User();
             
             $user->setId($userArray['id']);
             $user->setEmail($userArray['email']);
@@ -109,9 +109,9 @@ class User
         }
     }
 
-    static public function loadUserById(mysqli $conn, $id)
+    public static function loadUserById(mysqli $conn, $id)
     {
-        $id = $conn->real_escape_string($id);
+        $id = (int) $conn->real_escape_string($id);
 
         $sql = "SELECT * FROM `user` WHERE `id` = $id";
 

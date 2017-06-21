@@ -75,7 +75,7 @@ class Comment
         }
     }
     
-    static public function loadCommentById(mysqli $conn, $id)
+    public static function loadCommentById(mysqli $conn, $id)
     {
         $id_safe = (int) $conn->real_escape_string($id);
 
@@ -104,7 +104,7 @@ class Comment
         }
     }
     
-    static public function loadAllCommentsByBarkId(mysqli $conn, $id)
+    public static function loadAllCommentsByBarkId(mysqli $conn, $id)
     {
         $id_safe = (int) $conn->real_escape_string($id);
 

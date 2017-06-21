@@ -85,7 +85,7 @@ class Message {
         }
     }
 
-    static private function loadManyMessages(mysqli $conn, $sql) {
+    private static function loadManyMessages(mysqli $conn, $sql) {
         $messages = [];
 
         $result = $conn->query($sql);
@@ -112,7 +112,7 @@ class Message {
         }        
     }
 
-    static public function loadAllMessagesByAuthor(mysqli $conn, $id)
+    public static function loadAllMessagesByAuthor(mysqli $conn, $id)
     {
         $id_safe = (int) $conn->real_escape_string($id);
 
@@ -120,7 +120,7 @@ class Message {
         return self::loadManyMessages($conn, $sql);
     }
 
-    static public function loadAllMessagesByAddressee(mysqli $conn, $id)
+    public static function loadAllMessagesByAddressee(mysqli $conn, $id)
     {
         $id_safe = (int) $conn->real_escape_string($id);
         
